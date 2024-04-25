@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { searchMovies } from "../services/omdbService";
+import MovieList from "./MovieList";
 
 const SearchForm = () => {
   const [query, setQuery] = useState("");
@@ -9,12 +10,10 @@ const SearchForm = () => {
     e.preventDefault();
 
     try {
-      const fetchedResults = await searchMovies(query);
-      const filteredResults = fetchedResults.filter((movie) =>
-        movie.title.toLowerCase().includes(query.toLowerCase())
-      );
-      setResults(filteredResults);
-    } catch (error) {
+        const response = await searchMovies(query);
+        setResults(response);
+    }
+    catch (error) {
       console.error(error);
     }
   };
@@ -30,15 +29,7 @@ const SearchForm = () => {
         />
         <button type="submit">Search</button>
       </form>
-      <ul>
-        {results.map((result, index) => (
-          <li key={index}>
-            <h2>{result.title}</h2>
-            <p>{result.year}</p>
-            <img src={result.poster} alt={result.title} />
-          </li>
-        ))}
-      </ul>
+<MovieList movies={results} />
     </div>
   );
 };
