@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { getMovie } from "../services/omdbService";
+import MovieCard from "./MovieCard";
 
 const SearchForm = () => {
   const [query, setQuery] = useState("");
@@ -30,13 +31,7 @@ const SearchForm = () => {
       </form>
       <p>Showing results for: {submittedQuery}</p>
 
-      {movie && (
-        <div>
-          <h2>{movie.Title}</h2>
-          <img src={movie.Poster} alt={movie.Title} />
-          <p>{movie.Plot}</p>
-        </div>
-      )}
+<MovieCard movie={movie} />
     </div>
   );
 }
