@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import logo from "../ODS/logos/ontario-logo--desktop.svg";
-import menuIcon from "../ODS/icons/svg/ontario-icon-menu.svg";
 
 export class OPSHeader extends Component {
   render() {
@@ -31,17 +30,19 @@ export class OPSHeader extends Component {
             <section className="ontario-application-subheader">
               <div className="ontario-row">
                 <div className="ontario-columns ontario-small-12 ontario-application-subheader__container">
-                  <p className="ontario-application-subheader__heading"></p>
+                  <p className="ontario-application-subheader__heading">
+                    Movie Appp
+                  </p>
 
                   <div className="ontario-application-subheader__menu-container">
                     <ul className="ontario-application-subheader__menu ontario-show-for-large">
-                      <li></li>
-                      <li></li>
+                      <li>Movie Search</li>
+                      <li>Favourites</li>
                       <li></li>
                     </ul>
                     <ul className="ontario-application-subheader__menu ontario-hide-for-small ontario-show-for-medium ontario-hide-for-large">
-                      <li></li>
-                      <li></li>
+                      <li>MovieSearch</li>
+                      <li>Faves</li>
                     </ul>
                     <button
                       className="ontario-header__menu-toggler ontario-header-button ontario-header-button--with-outline"
@@ -50,24 +51,7 @@ export class OPSHeader extends Component {
                       aria-label="Show navigation menu"
                       type="button"
                     >
-                      <svg
-                        className="ontario-icon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                        preserveAspectRatio="xMidYMid meet"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          fill="none"
-                        >
-                          <path
-                            fill="#000"
-                            d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-                          ></path>
-                        </svg>{" "}
-                      </svg>
+                      {menuSVG()}
                       <span>Menu</span>
                     </button>
                   </div>
@@ -80,20 +64,15 @@ export class OPSHeader extends Component {
                 id="ontario-header-nav-toggler"
                 aria-controls="ontario-navigation"
                 aria-label="Hide navigation menu"
-                  >
-                <img
-                  src={menuIcon}
-                  alt="Menu"   style={{ filter: 'invert(0)' }}
-              
-                />
-                <span >Menu</span>
+              >
+                {menuSVG()}
+                <span>Menu</span>
               </button>
               <div className="ontario-navigation__container">
                 <ul>
-                  <li className="ontario-show-for-small-only"></li>
-                  <li className="ontario-show-for-small-only"></li>
-                  <li className="ontario-hide-for-large">
-                    <a to="mymovies">My Movies</a>
+                  <li className="ontario-show-for-small-only">link1</li>
+                  <li className="ontario-show-for-small-only">link2</li>
+                  <li className="ontario-hide-for-large">link3
                   </li>
                 </ul>
               </div>
@@ -105,6 +84,18 @@ export class OPSHeader extends Component {
     );
   }
 }
+const menuSVG = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={24}
+    height={24}
+    fill="none"
+    {...props}
+  >
+    <path fill="#fff" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+  </svg>
+);
+export default menuSVG;
 
 export class OPSFooter extends Component {
   render() {
