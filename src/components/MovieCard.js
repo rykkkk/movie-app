@@ -14,9 +14,9 @@ const MovieCard = ({ movie }) => {
         </div>
         <div className="ontario-card__text-container ontario-card--image-true">
           <h2 className="ontario-card__heading">
-            <a href="#">
+            <p>
               {movie.Title}
-            </a>
+            </p>
           </h2>
           <div className="ontario-card__description">
             <p>{movie.Plot}</p>

@@ -13,7 +13,7 @@ export class OPSHeader extends Component {
             <div className="ontario-row">
               <div className="ontario-columns ontario-small-6 ontario-application-header__logo">
                 <a href="https://www.ontario.ca/page/government-ontario">
-                  <img src={logo} alt="Ontario.ca homepage" role="img" />{" "}
+                  <img src={logo} alt="Ontario.ca homepage"  />{" "}
                 </a>
               </div>
               <div className="ontario-columns ontario-small-6 ontario-application-header__lang-toggle">
